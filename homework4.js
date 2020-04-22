@@ -65,11 +65,11 @@ function rotatesArray(arr, count, cnt = 1) {
 function getNestedChildren(arr, id = null) {
     let root = {};
 
-    for (let key in arr) {
-        if (arr[key].parent === id) {
-            root[arr[key].id] = getNestedChildren(arr, arr[key].id);
-            delete arr[key].id;
-            delete arr[key].parent;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].parent === id) {
+            root[arr[i].id] = getNestedChildren(arr, arr[i].id);
+            delete arr[i].id;
+            delete arr[i].parent;
         }
     }
     return root
