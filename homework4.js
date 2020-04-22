@@ -62,14 +62,14 @@ function rotatesArray(arr, count, cnt = 1) {
 }
 
 // 5
-function getNestedChildren(obj, id = null) {
+function getNestedChildren(arr, id = null) {
     let root = {};
 
-    for (let key in obj) {
-        if (obj[key].parent === id) {
-            root[obj[key].id] = getNestedChildren(obj, obj[key].id);
-            delete obj[key].id;
-            delete obj[key].parent;
+    for (let key in arr) {
+        if (arr[key].parent === id) {
+            root[arr[key].id] = getNestedChildren(arr, arr[key].id);
+            delete arr[key].id;
+            delete arr[key].parent;
         }
     }
     return root
